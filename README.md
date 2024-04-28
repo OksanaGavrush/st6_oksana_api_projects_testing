@@ -1,1 +1,0 @@
-# st6_oksana_api_projects_testing
