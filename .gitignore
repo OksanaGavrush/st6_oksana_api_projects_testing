@@ -6,3 +6,4 @@ __pycache__
 .env
 allure-results
 allure-report
+token.txt
