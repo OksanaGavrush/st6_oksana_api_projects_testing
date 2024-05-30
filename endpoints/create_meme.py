@@ -5,10 +5,10 @@ from endpoints.bese_endpoints import BaseEndpoint
 import json
 
 
-class CreatePublication(BaseEndpoint):
+class CreateMeme(BaseEndpoint):
 
     @allure.step("Create mem")
-    def create_new_publication(self, token, payload=None):
+    def create_new_meme(self, token, payload=None):
         payload = payload if payload else conftest.PAYLOAD
         headers = {
             'Authorization': f'{token}'

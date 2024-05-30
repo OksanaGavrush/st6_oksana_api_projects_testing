@@ -4,10 +4,10 @@ import conftest
 from endpoints.bese_endpoints import BaseEndpoint
 
 
-class PutPublication(BaseEndpoint):
+class PutMeme(BaseEndpoint):
 
     @allure.step("Put mem")
-    def put_new_publication(self, token, meme_id, payload):
+    def put_new_meme(self, token, meme_id, payload):
         payload = payload if payload else conftest.PAYLOAD
         headers = {
             'Authorization': f'{token}'

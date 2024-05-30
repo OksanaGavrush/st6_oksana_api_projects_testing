@@ -5,11 +5,11 @@ from endpoints.bese_endpoints import BaseEndpoint
 from endpoints.json_shemas import MemePostPayload
 
 
-class GetIdPublication(BaseEndpoint):
+class GetMeme(BaseEndpoint):
     response_data = None
 
     @allure.step("Get meme ID from the publication")
-    def get_id_publication(self, token, meme_id):
+    def retrieve_meme(self, token, meme_id):
         headers = {
             'Authorization': f'{token}'
         }

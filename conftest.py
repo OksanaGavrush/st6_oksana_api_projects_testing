@@ -1,10 +1,10 @@
 import os
 import pytest
 import requests
-from endpoints.create_publication import CreatePublication
-from endpoints.delete_publication import DeletePublication
-from endpoints.get_id_publication import GetIdPublication
-from endpoints.put_publication import PutPublication
+from endpoints.create_meme import CreateMeme
+from endpoints.delete_meme import DeleteMeme
+from endpoints.get_id_meme import GetMeme
+from endpoints.put_meme import PutMeme
 
 
 BASE_URL = 'http://167.172.172.115:52355'
@@ -49,34 +49,34 @@ def token():
 
 @pytest.fixture()
 def meme_id(token):
-    create_mem_pub = CreatePublication()
+    create_mem_pub = CreateMeme()
     payload = {
         "text": "Test 2",
         "url": "https://9gag.com/gag/amoNKdV",
         "tags": ["mosquito", "spray"],
         "info": {"colors": ["red", "white"], "objects": ["picture", "text"]},
     }
-    create_mem_pub.create_new_publication(token=token, payload=payload)
+    create_mem_pub.create_new_meme(token=token, payload=payload)
     meme_id = create_mem_pub.response.json()['id']
     yield meme_id
-    DeletePublication().delete_publication(token=token, meme_id=meme_id)
+    DeleteMeme().remove_meme(token=token, meme_id=meme_id)
 
 
 @pytest.fixture
-def create_post():
-    return CreatePublication()
+def make_post():
+    return CreateMeme()
 
 
 @pytest.fixture
-def get_id_post():
-    return GetIdPublication()
+def get_id_meme():
+    return GetMeme()
 
 
 @pytest.fixture
-def put_post():
-    return PutPublication()
+def put_meme():
+    return PutMeme()
 
 
 @pytest.fixture
-def delete_post():
-    return DeletePublication()
+def remove_post():
+    return DeleteMeme()

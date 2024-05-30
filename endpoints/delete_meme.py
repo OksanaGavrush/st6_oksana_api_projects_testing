@@ -4,10 +4,10 @@ import conftest
 from endpoints.bese_endpoints import BaseEndpoint
 
 
-class DeletePublication(BaseEndpoint):
+class DeleteMeme(BaseEndpoint):
 
     @allure.step("Send DELETE request and validate successful deletion")
-    def delete_publication(self, token, meme_id):
+    def remove_meme(self, token, meme_id):
         headers = {
             'Authorization': f'{token}'
         }
