@@ -43,11 +43,11 @@ class PublicationUser(HttpUser):
         self.token = get_token()
 
     @task(7)
-    def get_all_post(self):
+    def get_all_meme(self):
         self.client.get('/meme', headers={'Authorization': f'{self.token}'})
 
     @task(1)
-    def create_publication(self):
+    def create_meme(self):
         payload = {
             "text": "Test 1",
             "url": "https://9gag.com/gag/amoNKdV",
